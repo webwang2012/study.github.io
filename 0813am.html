@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        /*
+        * html5 canvas 应用
+        *canvas----画布
+        *
+        *
+        *
+        *
+        *
+        * */
+       window.onload=function(){
+//           1.获取canvas元素
+   var v_canvas=document.getElementById("canvas01");
+//        2.取得上下文--context
+//           context中封装了很多绘图功能的对象
+           var context=v_canvas.getContext("2d");
+           //3绘图
+//
+//               设置填充样式
+//           context.fillStyle="red";
+//           绘制矩形  context.fillRect(起始横坐标,起始纵坐标,宽,高)
+//           context.fillRect(50,50,100,100);
+
+           //设置填充边框样式
+//           context.strokeStyle="pink";
+           //设置线宽
+//           context.lineWidth=3;
+//           context.strokeRect(50,50,100,100);
+
+//           擦除指定矩形区域的图形
+//           context.clearRect(80,80,50,50)
+//           context.clearRect(0,0,150,150)
+
+           //练习：按右键，矩形图形移动
+
+           //圆形
+//           开始创建路径
+//           context.beginPath();
+//           //创建圆形路径
+////           context.arc(起点横坐标，纵左边，半径，开始角度，结束角度，是否为顺时针);
+////                 ture 顺时针， false  逆时针
+//           context.arc(50,50,50,0,Math.PI*2,false);
+//           //关闭路径
+//           context.closePath();
+//           //设置绘制样式
+//           context.fillStyle="red";
+//           context.fill();//填充
+//           context.strokeStyle="green";
+//           context.lineWidth=3;
+//           context.stroke();
+
+           //线  ---lineTo(起点X，起点Y)
+           //       moveTo（终点X,终点Y）--该方法在moveTo方法中指定的起点参数与本身的终点参数
+//                                         之间绘制一条直线
+
+
+//           context.moveTo(10,10);
+//           context.lineTo(100,100);
+//           context.strokeStyle='red';
+//           context.lineWidth=10;
+//           context.stroke();
+
+//               曲线    bezierCurveTo  贝济埃曲线
+//          bezierCurveTo(第一个控制点的横坐标，纵，第二横坐标，第二纵，终点横坐标，终点纵坐标)
+//          context.beginPath();
+//           context.bezierCurveTo(20,20,200,55,40,240);
+////           context.closePath();
+//           context.strokeStyle="red";
+//           context.stroke();
+//           context.bezierCurveTo(0,240,300,220,140,440);
+//           context.strokeStyle="red";
+//           context.stroke();
+//           context.bezierCurveTo(0,240,300,220,440,440);
+//           context.strokeStyle="red";
+//           context.stroke();
+//           context.bezierCurveTo(440,240,800,220,640,440);
+//           context.strokeStyle="red";
+//           context.stroke();
+//           context.bezierCurveTo(440,240,1100,220,840,440);
+//           context.strokeStyle="red";
+//           context.stroke();
+
+
+//           渐变
+//           1.线性渐变（）
+//           context.createLinearGradient(渐变起点横坐标，渐变起点纵坐标，渐变结束点横坐标，渐变结束点纵坐标)
+//                context.addColorStop(arg1,arg2)  追加渐变的颜色
+//             arg1:为所设定的颜色离开渐变起始点的偏移量，范围0---1
+//              arg2;追加颜色
+//          var g1=context.createLinearGradient(0,0,0,200);
+//           g1.addColorStop(0,"red");
+//           g1.addColorStop(0.5,"blue");
+//           g1.addColorStop(1,"green");
+//
+//           context.fillStyle=g1;
+//           context.fillRect(0,0,200,200);
+
+
+//           var g1=context.createLinearGradient(0,0,300,0);
+//           g1.addColorStop(0,"rgba(0,0,255,0.5)");
+//           g1.addColorStop(0.5,"rgba(255,0,0,0.5)");
+//           g1.addColorStop(1,"rgba(0,255,0,0.5)")
+//           for(var i=0;i<10;i++){
+//               context.beginPath();
+//               context.arc(i*25,i*25,i*10,0,Math.PI*2,true);
+//               context.fillStyle=g1;
+//               context.closePath();
+//               context.fill();
+//           }
+
+
+           //径向渐变
+//           context.createRadialGradient(渐变开始的圆心横坐标，渐变开始的圆心纵坐标，开始圆的半径
+//                                       渐变结束的圆心横坐标，渐变结束的圆心纵坐标，结束圆的半径)
+//            原理：从第一个圆的圆心向外进行渐变扩散，一直扩散到第二个圆的外轮廓出
+//           context.addColorStop(arg1,arg2)  追加渐变的颜色
+//             arg1:为所设定的颜色离开渐变起始点的偏移量，范围0---1
+//              arg2;追加颜色
+
+//           var g2=context.createRadialGradient(150,150,30,150,150,200);
+//           g2.addColorStop(0,"rgba(0,0,255,0.5)");
+//           g2.addColorStop(0.5,"rgba(255,0,0,0.5)");
+//           g2.addColorStop(1,"rgba(0,255,0,0.5)");
+//           context.fillStyle=g2;
+//           context.fillRect(0,0,300,300);
+
+//context.save();//保存当前状态
+//           context.restore();//恢复到保存前状态
+//context.clearRect()
+           //鸟巢
+//           var x;
+//           var y;
+//           var z=Math.PI/15*11;
+//           context.beginPath();
+////            context.moveTo(0,0);
+//           for(var i=0;i<30;i++){
+//               x=Math.sin(i*z);
+//               y=Math.cos(i*z);
+//               context.lineTo(150+x*100,150+y*100);
+//           }
+//           context.closePath();
+//           context.strokeStyle='red';
+//           context.lineWidth=1;
+//           context.stroke();
+
+
+//           var x=Math.sin(0);
+//           var y=Math.cos(0);
+//           var z=Math.PI/15*10;
+//           for(var i=0;i<30;i++){
+//               x=Math.sin(i*z);
+//               y=Math.cos(i*z);
+//               context.lineTo(50+x,10+y);
+//           }
+//           context.strokeStyle='red';
+//           context.lineWidth=10;
+//           context.stroke();
+
+
+//for(var i=0;i<20;i++){
+//    context.beginPath();
+//    context.arc(30*i,30*i,6*i,0,Math.PI*2,false);
+//    context.closePath();
+//    context.fillStyle="rgba(255,0,0,"+(1-0.05*i)+")";
+//    context.fill();
+//}
+//           var i=1;
+//           function funhui(){
+//               if(i<20){
+//                   context.beginPath();
+//                   context.arc(20*i,20*i,6*i,0,Math.PI*2,false);
+//                   context.closePath();
+//                   context.fillStyle="rgba(255,0,0,"+(1-0.05*i)+")";
+//                   context.fill();
+//                   i++;
+//               }
+//           }
+//        setInterval(funhui,100);
+
+//           var i=1;
+//           function funhui(){
+//               if(i<20){
+//                   context.beginPath();
+//                   context.arc(200,200,6*i,0,Math.PI*2,false);
+//                   context.closePath();
+//                   context.fillStyle="rgba(255,0,0,"+(1-0.05*i)+")";
+//                   context.fill();
+//                   i++;
+//               }
+//           }
+//        setInterval(funhui,100);
+
+//           var i=1;
+//           function funhui(){
+//               if(i<50){
+//                   context.beginPath();
+//                   context.arc(200,200,6*i,0,Math.PI*2,false);
+//                   context.closePath();
+//                   context.fillStyle="rgba(255,0,0,"+(1-0.02*i)+")";
+//                   context.fill();
+//                   i++;
+//               }
+//           }
+//           setInterval(funhui,100);
+                  }
+
+    </script>
+    <style>
+        #canvas01{
+            background-color: #f4ffbd;
+            /*display:none;*/
+            /*background: url("imgs/aa.jpg");*/
+        }
+    </style>
+</head>
+<body>
+<canvas width="1000" height="500" id="canvas01"  ></canvas>
+<button onclick="funhuaban()">画板</button>
+<button onclick="clear()">清除</button>
+</body>
+</html>
+
+        <!--<script>-->
+            <!--var v_canvas=document.getElementById("canvas01");-->
+            <!--var context=v_canvas.getContext("2d");-->
+            <!--context.beginPath();-->
+            <!--var x,y;-->
+            <!--function funhuaban(){-->
+                 <!--v_canvas.style.display="block";-->
+            <!--}-->
+            <!--function clear(){-->
+              <!--context.closePath();-->
+                <!--context.clearRect(0,0,500,500);-->
+
+            <!--}-->
+            <!--v_canvas.onmousedown=function(e){-->
+<!--//               clear();-->
+<!--//                v_canvas.onmousemove=function(e){-->
+                    <!--e=e||window.e;-->
+<!--//-->
+                    <!--x= e.pageX;-->
+                    <!--y= e.pageY;-->
+<!--//                context.beginPath();-->
+                <!--context.moveTo(x,y);-->
+                <!--v_canvas.onmousemove=function(e){-->
+                    <!--e=e||window.e;-->
+<!--//                context.clearRect(0,0,500,500);-->
+
+                    <!--context.lineTo(e.pageX,e.pageY);-->
+<!--//                    context.closePath();-->
+                    <!--context.strokeStyle='red';-->
+                    <!--context.lineWidth=10;-->
+                    <!--context.stroke();-->
+<!--//-->
+                <!--}-->
+<!--//                }-->
+            <!--}-->
+
+            <!--v_canvas.onmouseup=function(e){-->
+                <!--v_canvas.onmousemove=function(e){}-->
+            <!--}-->
+<!--//                       context.lineTo(100,100);-->
+
+        <!--</script>-->
+
+
+
+                               <!--//  八角形-->
+        <!--<script>-->
+            <!--var y;-->
+            <!--var z=Math.PI/8*10;-->
+            <!--context.beginPath();-->
+            <!--//            context.moveTo(0,0);-->
+            <!--for(var i=0;i<12;i++){-->
+                <!--x=50*Math.sin(i*z);-->
+                <!--y=50*Math.cos(i*z);-->
+                <!--context.lineTo(150+x,50+y);-->
+            <!--}-->
+            <!--context.closePath();-->
+            <!--context.strokeStyle='red';-->
+            <!--context.lineWidth=1;-->
+            <!--context.stroke();-->
+        <!--</script>-->
+
+
+        <!--//面包圈-->
+<!--<script>-->
+    <!--var v_canvas = document.getElementById('canvas01');-->
+    <!--var context = v_canvas.getContext("2d");-->
+    <!--var i = 0;-->
+    <!--function show(){-->
+        <!--context.beginPath();-->
+        <!--context.arc(100*Math.cos(2*Math.PI/25*i)+300,100*Math.sin(2*Math.PI/25*i)+300,30,0,Math.PI*2,true);-->
+        <!--context.closePath();-->
+        <!--context.fillStyle = 'rgba('+Math.floor(Math.random()*255)+','+Math.floor(Math.random()*255)+','+Math.floor(Math.random()*255)+',0.5)';-->
+        <!--context.fill();-->
+        <!--i++;-->
+        <!--if(i>25){-->
+            <!--context.clearRect(0,0,600,600);-->
+            <!--i=0;-->
+        <!--}-->
+    <!--}-->
+    <!--setInterval(show,200);-->
+<!--</script>-->
+
+
+
+                                <!--//涂鸦-->
+        <script>
+            var v_canvas=document.getElementById("canvas01");
+            var context=v_canvas.getContext("2d");
+            function funcircle(a,b,c,d,e,f,cc,bc,w){
+                context.beginPath();
+                //创建圆形路径
+//                context.arc(50,50,50,0,Math.PI*2,false);
+//                context.arc(起点横坐标，纵左边，半径，开始角度，结束角度，是否为顺时针);
+                context.arc(a,b,c,Math.PI*d,Math.PI*e,f);
+                //关闭路径
+                context.closePath();
+                //设置绘制样式
+                context.fillStyle=cc;
+                context.fill();//填充
+                context.strokeStyle=bc;
+                context.lineWidth=w;
+                context.stroke();
+            }
+            function funcolor(){
+                var  c_array=['0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f'];
+                var  c2='';
+                var  r='';
+                for(var i=0;i<6;i++){
+                    r=c_array[Math.floor(Math.random()*c_array.length)];
+                   c2+=r;
+                }
+                return "#"+c2
+            }
+            function funline(){
+                return Math.floor(Math.random()*5);
+            }
+            function funcenter(){
+                return Math.floor(Math.random()*400);
+            }
+            function funR(){
+                return Math.floor(Math.random()*50);
+            }
+            function fundeg(){
+                return Math.random();
+            }
+            function funTF(){
+                if(Math.floor(Math.random()*10)<5){
+                    return true;
+                }
+                else{
+                    return false;
+                }
+            }
+            funcircle(0,40,30,-0.5,0.5,false,funcolor(),funcolor(),funline());
+            function  fun_all(){
+                funcircle(funcenter(),funcenter(),funR(),fundeg(),fundeg(),funTF(),funcolor(),funcolor(),funline());
+            }
+           setInterval(fun_all,50)
+        </script>
+
+
+
+
+
+                         <!--//贪吃蛇-->
+
+        <script>
+//            var v_canvas=document.getElementById("canvas01");
+//            var context=v_canvas.getContext("2d");
+//            var x=100;
+//            var y=100;
+//     function fun01(a,b,c,d){
+////         context.clearRect(a-10,b-10,30,30);
+////         context.clearRect(0,0,400,400);
+//
+//         context.fillStyle="red";
+//         //           绘制矩形  context.fillRect(起始横坐标,起始纵坐标,宽,高)
+//         context.fillRect(a,b,c,d);
+//
+//         context.strokeStyle="pink";
+//         //设置线宽
+//         context.lineWidth=3;
+//         context.strokeRect(a,b,c,d);
+//     }
+////window.onload=function(){
+//    fun01(x,y,20,20);
+//    document.onkeydown=function(e){
+//        e = e || window.e;
+//        if (e.keyCode == 39) {
+//            x+=20;
+//          fun01(x,y,20,20);
+//        }
+//        else if(e.keyCode==37){
+//            x-=20;
+//            fun01(x,y,20,20);
+//        }
+//        else if(e.keyCode==38){
+//            y-=20;
+//            fun01(x,y,20,20);
+//        }
+//        else if(e.keyCode==40){
+//            y+=20;
+//            fun01(x,y,20,20);
+//        }
+//    }
+//}
+        </script>
